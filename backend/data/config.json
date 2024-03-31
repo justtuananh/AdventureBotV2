@@ -1,0 +1,35 @@
+{
+    "version": "0.0.1",
+    "ui": {
+        "prompt_suggestions": [
+            {
+                "title": [
+                    "Điểm đến nổi tiếng",
+                    "ở Việt Nam"
+                ],
+                "content": "Kể tên một số điểm du lịch nổi tiếng ở Việt Nam"
+            },
+            {
+                "title": [
+                    "Hãy gợi ý cho tôi",
+                    "Một số hoạt động thú vị khi đến Việt Nam"
+                ],
+                "content": "Kể tôi 5 hoạt động thú vị khi đến Việt Nam"
+            },
+            {
+                "title": [
+                    "Kể tên một số món ăn",
+                    "Nổi tiếng ở Việt Nam"
+                ],
+                "content": "Kể tên một số món ăn nổi tiếng ở Việt Nam"
+            },
+            {
+                "title": [
+                    "Một số bãi biển đẹp",
+                    "Nổi tiếng ở Việt Nam"
+                ],
+                "content": "Chỉ cho tôi một số bãi biển đẹp ở Việt Nam"
+            }
+        ]
+    }
+}
