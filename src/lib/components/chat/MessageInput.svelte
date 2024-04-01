@@ -3,6 +3,7 @@
 	import { onMount, tick } from 'svelte';
 	import { settings } from '$lib/stores';
 	import { blobToFile, calculateSHA256, findWordIndices } from '$lib/utils';
+	import {_} from 'svelte-i18n';
 
 	import Prompts from './MessageInput/PromptCommands.svelte';
 	import Suggestions from './MessageInput/Suggestions.svelte';
@@ -804,7 +805,7 @@
 
 						<div class="self-end mb-2 flex space-x-1 mr-1">
 							{#if messages.length == 0 || messages.at(-1).done == true}
-								<Tooltip content="Ghi âm giọng nói">
+								<Tooltip content={$_('place_holder_message')}>
 									{#if speechRecognitionEnabled}
 										<button
 											id="voice-input-button"
@@ -873,7 +874,7 @@
 									{/if}
 								</Tooltip>
 
-								<Tooltip content="Gửi">
+								<Tooltip content={$_('send')}>
 									<button
 										class="{prompt !== ''
 											? 'bg-black text-white hover:bg-gray-900 dark:bg-white dark:text-black dark:hover:bg-gray-100 '
@@ -919,7 +920,7 @@
 				</form>
 
 				<div class="mt-1.5 text-xs text-gray-500 text-center">
-					LLMs có thể đưa ra phản hồi sai lệch, vui lòng lưu ý đến điều đó.
+					{$_("warning")}
 				</div>
 			</div>
 		</div>

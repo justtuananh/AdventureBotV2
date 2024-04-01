@@ -1,9 +1,9 @@
 <script lang="ts">
 	import { v4 as uuidv4 } from 'uuid';
-
+	
 	import fileSaver from 'file-saver';
 	const { saveAs } = fileSaver;
-
+	import {_} from 'svelte-i18n';
 	import { goto, invalidateAll } from '$app/navigation';
 	import { page } from '$app/stores';
 	import { user, chats, settings, showSettings, chatId, tags } from '$lib/stores';
@@ -128,7 +128,7 @@
 						/>
 					</div>
 
-					<div class=" self-center font-medium text-sm">Cuộc trò chuyện mới</div>
+					<div class=" self-center font-medium text-sm">{$_("new_chat")}</div>
 				</div>
 
 				<div class="self-center">
@@ -173,7 +173,7 @@
 					</div>
 
 					<div class="flex self-center">
-						<div class=" self-center font-medium text-sm">Modelfiles</div>
+						<div class=" self-center font-medium text-sm">{$_("modelfile")}</div>
 					</div>
 				</a>
 			</div>
@@ -201,7 +201,7 @@
 					</div>
 
 					<div class="flex self-center">
-						<div class=" self-center font-medium text-sm">Lời nhắc</div>
+						<div class=" self-center font-medium text-sm">{$_("prompt")}</div>
 					</div>
 				</a>
 			</div>
@@ -229,7 +229,7 @@
 					</div>
 
 					<div class="flex self-center">
-						<div class=" self-center font-medium text-sm">Tài liệu</div>
+						<div class=" self-center font-medium text-sm">{$_("documment")}</div>
 					</div>
 				</a>
 			</div>
@@ -602,7 +602,7 @@
 												/>
 											</svg>
 										</div>
-										<div class=" self-center font-medium">Quản lí tài khoản</div>
+										<div class=" self-center font-medium">{$_("account_config")}</div>
 									</button>
 
 									<button
@@ -660,7 +660,7 @@
 											/>
 										</svg>
 									</div>
-									<div class=" self-center font-medium">Settings</div>
+									<div class=" self-center font-medium">{$_("setting")}</div>
 								</button>
 							</div>
 
@@ -694,7 +694,7 @@
 											/>
 										</svg>
 									</div>
-									<div class=" self-center font-medium">Sign Out</div>
+									<div class=" self-center font-medium">{$_("sign_out")}</div>
 								</button>
 							</div>
 						</div>

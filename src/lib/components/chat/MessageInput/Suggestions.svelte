@@ -13,6 +13,7 @@
 <div class=" mb-3 md:p-1 text-left w-full">
 	<div class=" flex flex-wrap-reverse px-2 text-left">
 		{#each prompts as prompt, promptIdx}
+		
 			<div
 				class="{promptIdx > 1 ? 'hidden sm:inline-flex' : ''} basis-full sm:basis-1/2 p-[5px] px-1"
 			>

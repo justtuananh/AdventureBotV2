@@ -4,6 +4,7 @@ from fastapi.responses import StreamingResponse
 from fastapi.concurrency import run_in_threadpool
 
 from pydantic import BaseModel, ConfigDict
+from langdetect import detect
 
 import random
 import requests
@@ -713,7 +714,6 @@ async def generate_chat_completion(
     form_data: GenerateChatCompletionForm,
     url_idx: Optional[int] = None,
     user=Depends(get_current_user),
-    lang : Optional[str] = None,
 ):  
 
     last_user_message = None
@@ -736,11 +736,12 @@ async def generate_chat_completion(
         for message in reversed(form_data.messages):
             if message.role == 'user':
                 last_user_message = message.content
+                lang = str(detect(message.content))
                 break
-    
+        print(lang)
         payload = {
             "question" : last_user_message,
-            "language" : "vi"
+            "language" : lang if lang == 'vi' else 'en'
         }
     
 

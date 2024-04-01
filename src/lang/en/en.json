@@ -1,0 +1,20 @@
+{
+    "models": "Choose a model",
+    "set_default": "Set as default",
+    "hello" : "Hello",
+    "ask" : "How can I help you today?",
+    "place_holder_message" : "Record message",
+    "send" : "Send",
+    "warning" : "LLMs can make hallucination respone, please remember it",
+    "new_chat" : "New chat",
+    "modelfile": "Modelfiles",
+    "prompt" : "Prompt",
+    "documment" : "Documents",
+    "account_config" : "Account management",
+    "setting" : "Settings",
+    "sign_out" : "Sign Out",
+    "my_model_file" : "My modelfiles",
+    "create_modelfile" : "Create a new modelfile",
+    "modelfile_annotate" : "Config your modelfile for specific domain",
+    "export" : "Export"
+}

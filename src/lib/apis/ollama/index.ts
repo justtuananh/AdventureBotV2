@@ -1,4 +1,6 @@
 import { OLLAMA_API_BASE_URL } from '$lib/constants';
+import { locale } from 'svelte-i18n';
+
 
 export const getOllamaUrls = async (token: string = '') => {
 	let error = null;

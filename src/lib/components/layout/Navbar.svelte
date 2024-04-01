@@ -8,6 +8,7 @@
 	import ShareChatModal from '../chat/ShareChatModal.svelte';
 	import TagInput from '../common/Tags/TagInput.svelte';
 	import Tags from '../common/Tags.svelte';
+	import { locale } from 'svelte-i18n';
 
 	export let initNewChat: Function;
 	export let title: string = $WEBUI_NAME;
@@ -62,6 +63,12 @@
 		});
 
 		saveAs(blob, `chat-${chat.title}.txt`);
+	};
+
+	const toggleLocale = () => {
+		const newLocale = $locale === 'vi' ? 'en' : 'vi';
+		locale.set(newLocale);
+		localStorage.setItem('lang', newLocale);
 	};
 </script>
 
@@ -134,6 +141,120 @@
 					</button>
 				{/if}
 			</div>
+			<div class="switch">
+				<input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox" on:change={toggleLocale}/>
+				<label for="language-toggle" />
+				<span class="on">VI</span>
+				<span class="off">EN</span>
+			</div>
 		</div>
 	</div>
 </nav>
+
+<style>
+	.switch {
+		position: relative;
+		display: inline-block;
+	}
+
+	.switch > span {
+		position: absolute;
+		top: 8px;
+		pointer-events: none;
+		font-family: 'Helvetica', Arial, sans-serif;
+		font-weight: bold;
+		font-size: 12px;
+		text-transform: uppercase;
+		text-shadow: 0 1px 0 rgba(0, 0, 0, 0.06);
+		width: 50%;
+		text-align: center;
+	}
+
+	input.check-toggle-round-flat:checked ~ .off {
+		color: #c11919;
+	}
+
+	input.check-toggle-round-flat:checked ~ .on {
+		color: #ca0d0d;
+	}
+
+	.switch > span.on {
+		left: 0;
+		padding-left: 2px;
+		color: #d50c0c !important;
+	}
+
+	.switch > span.off {
+		right: 0;
+		padding-right: 4px;
+		color: #3506f4 !important;
+	}
+
+	.check-toggle {
+		position: absolute;
+		margin-left: -9999px;
+		visibility: hidden;
+	}
+	.check-toggle + label {
+		display: block;
+		position: relative;
+		cursor: pointer;
+		outline: none;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		-ms-user-select: none;
+		user-select: none;
+	}
+
+	input.check-toggle-round-flat + label {
+		width: 80px;
+		height: 30px;
+		background-color: #ffffff;
+		-webkit-border-radius: 60px;
+		-moz-border-radius: 60px;
+		-ms-border-radius: 60px;
+		-o-border-radius: 60px;
+		border-radius: 60px;
+	}
+	input.check-toggle-round-flat + label:before,
+	input.check-toggle-round-flat + label:after {
+		display: block;
+		position: absolute;
+		content: '';
+	}
+
+	input.check-toggle-round-flat + label:before {
+		top: 2px;
+		left: 2px;
+		bottom: 2.5px;
+		right: 4px;
+		background-color: #c7aea8;
+		-webkit-moz-border-radius: 60px;
+		-ms-border-radius: 60px;
+		-o-border-radius: 60px;
+		border-radius: 60px;
+	}
+	input.check-toggle-round-flat + label:after {
+		top: 5px;
+		bottom: 5px;
+		left: 5px;
+		width: 35px;
+		background-color: #fff;
+		-webkit-border-radius: 52px;
+		-moz-border-radius: 5px;
+		-ms-border-radius: 52px;
+		-o-border-radius: 52px;
+		border-radius: 52px;
+		-webkit-transition: margin 0.2s;
+		-moz-transition: margin 0.2s;
+		-o-transition: margin 0.2s;
+		transition: margin 0.2s;
+	}
+
+	input.check-toggle-round-flat:checked + label {
+	}
+
+	input.check-toggle-round-flat:checked + label:after {
+		margin-left: 33px;
+	}
+</style>

@@ -35,6 +35,10 @@
 	import ShortcutsModal from '$lib/components/chat/ShortcutsModal.svelte';
 	import ChangelogModal from '$lib/components/ChangelogModal.svelte';
 	import Tooltip from '$lib/components/common/Tooltip.svelte';
+	import { browser } from '$app/environment';
+	import { locale, waitLocale } from 'svelte-i18n';
+	import type { LayoutLoad } from '../$types';
+	import '../../lib/i18n/index';
 
 	let ollamaVersion = '';
 	let loaded = false;
@@ -43,7 +47,9 @@
 	let localDBChats = [];
 
 	let showShortcuts = false;
-
+	export const load: LayoutLoad = async () => {
+		await waitLocale();
+	};
 	const getModels = async () => {
 		let models = await Promise.all([
 			await getOllamaModels(localStorage.token).catch((error) => {
@@ -103,8 +109,6 @@
 			} catch (error) {
 				// IndexedDB Not Found
 			}
-
-			console.log();
 
 			await models.set(await getModels());
 			await tick();

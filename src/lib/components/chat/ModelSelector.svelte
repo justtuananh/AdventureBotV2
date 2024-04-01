@@ -3,7 +3,7 @@
 	import { models, showSettings, settings, user } from '$lib/stores';
 	import { onMount, tick } from 'svelte';
 	import { toast } from 'svelte-sonner';
-
+	import {_} from 'svelte-i18n';
 	export let selectedModels = [''];
 	export let disabled = false;
 
@@ -28,7 +28,7 @@
 			$models.map((m) => m.id).includes(model) ? model : ''
 		);
 	}
-</script>
+	</script>
 
 <div class="flex flex-col my-2">
 	{#each selectedModels as selectedModel, selectedModelIdx}
@@ -39,7 +39,7 @@
 				bind:value={selectedModel}
 				{disabled}
 			>
-				<option class=" text-gray-700" value="" selected disabled>Chọn một mô hình</option>
+				<option class=" text-gray-700" value="" selected disabled>{$_('models')}</option>
 
 				{#each $models as model}
 					{#if model.name === 'hr'}
@@ -133,5 +133,5 @@
 </div>
 
 <div class="text-left mt-1.5 text-xs text-gray-500">
-	<button on:click={saveDefaultModel}> Đặt làm mặc định</button>
+	<button on:click={saveDefaultModel}>{$_('set_default')}</button>
 </div>

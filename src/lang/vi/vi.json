@@ -1,0 +1,20 @@
+{
+    "models": "Chọn một mô hình",
+    "set_default": "Đặt làm mặc định",
+    "hello" : "Xin chào",
+    "ask" : "Tôi có thể giúp gì cho bạn hôm nay?",
+    "place_holder_message" : "Ghi âm giọng nói",
+    "send" : "Gửi",
+    "warning" : "LLMs có thể đưa ra phản hồi sai lệch, vui lòng lưu ý đến điều đó.",
+    "new_chat" : "Cuộc trò chuyện mới",
+    "modelfile" : "File cài đặt mô hình",
+    "prompt" : "Lời nhắc",
+    "documment" : "Tài liệu",
+    "account_config" : "Quản lí tài khoản",
+    "setting" : "Cài đặt",
+    "sign_out" : "Đăng xuất",
+    "my_model_file" : "ModelFiles của tôi",
+    "create_modelfile" : "Tạo một file cài đặt mô hình",
+    "modelfile_annotate" : "Tùy chỉnh mô hình cho một mục đích cụ thể",
+    "export" : "Xuất"
+}

@@ -2,7 +2,7 @@
 	import { WEBUI_BASE_URL } from '$lib/constants';
 	import { user } from '$lib/stores';
 	import { onMount } from 'svelte';
-
+	import {_} from 'svelte-i18n';
 	export let models = [];
 	export let modelfiles = [];
 
@@ -64,9 +64,9 @@
 					</div>
 				{/if}
 			{:else}
-				<div class=" line-clamp-1">Hello, {$user.name}</div>
+				<div class=" line-clamp-1">{$_('hello')}, {$user.name}</div>
 
-				<div>How can I help you today?</div>
+				<div>{$_('ask')}</div>
 			{/if}
 		</div>
 	</div>

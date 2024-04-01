@@ -2,7 +2,7 @@
 	import { toast } from 'svelte-sonner';
 	import fileSaver from 'file-saver';
 	const { saveAs } = fileSaver;
-
+	import {_} from 'svelte-i18n';
 	import { onMount } from 'svelte';
 
 	import { WEBUI_NAME, modelfiles, settings, user } from '$lib/stores';
@@ -81,7 +81,7 @@
 <div class="min-h-screen max-h-[100dvh] w-full flex justify-center dark:text-white">
 	<div class="flex flex-col justify-between w-full overflow-y-auto">
 		<div class="max-w-2xl mx-auto w-full px-3 md:px-0 my-10">
-			<div class=" text-2xl font-semibold mb-3">ModelFiles của tôi</div>
+			<div class=" text-2xl font-semibold mb-3">{$_("my_model_file")}</div>
 
 			<a class=" flex space-x-4 cursor-pointer w-full mb-2 px-3 py-2" href="/modelfiles/create">
 				<div class=" self-center w-10">
@@ -104,8 +104,8 @@
 				</div>
 
 				<div class=" self-center">
-					<div class=" font-bold">Tạo một modelfile</div>
-					<div class=" text-sm">Tùy chỉnh mô hình cho một mục đích cụ thể</div>
+					<div class=" font-bold">{$_("create_modelfile")}</div>
+					<div class=" text-sm">{$_("modelfile_annotate")}</div>
 				</div>
 			</a>
 
@@ -294,7 +294,7 @@
 							saveModelfiles($modelfiles);
 						}}
 					>
-						<div class=" self-center mr-2 font-medium">Xuất Modelfiles</div>
+						<div class=" self-center mr-2 font-medium">{$_("export")} Modelfiles</div>
 
 						<div class=" self-center">
 							<svg
