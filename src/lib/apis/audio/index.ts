@@ -1,12 +1,13 @@
 import { AUDIO_API_BASE_URL } from '$lib/constants';
-var language = localStorage.lang
+
 export const transcribeAudio = async (token: string, file: File) => {
+	const language = String(localStorage.getItem('lang'));
 	const data = new FormData();
 	data.append('file', file);
-	data.append('lang', language)
 
+	const url = `${AUDIO_API_BASE_URL}/transcribe?lang=${encodeURIComponent(language)}`;
 	let error = null;
-	const res = await fetch(`${AUDIO_API_BASE_URL}/transcribe`, {
+	const res = await fetch(url, {
 		method: 'POST',
 		headers: {
 			Accept: 'application/json',

@@ -16,5 +16,8 @@
     "my_model_file" : "ModelFiles của tôi",
     "create_modelfile" : "Tạo một file cài đặt mô hình",
     "modelfile_annotate" : "Tùy chỉnh mô hình cho một mục đích cụ thể",
-    "export" : "Xuất"
+    "export" : "Xuất",
+    "what_sup" : "Có gì ở",
+    "version" : "Phiên bản",
+    "okay" : "Được rồi đi nào !"
 }

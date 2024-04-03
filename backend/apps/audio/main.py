@@ -25,7 +25,7 @@ from utils.utils import (
 from utils.misc import calculate_sha256
 
 from config import CACHE_DIR, UPLOAD_DIR, WHISPER_MODEL, WHISPER_MODEL_DIR
-
+from pydantic import BaseModel, ConfigDict
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
@@ -35,13 +35,20 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+class ASR(BaseModel):
+    file: UploadFile = File(...),
+    lang: str
+
+
 
 @app.post("/transcribe")
+@app.post("/transcribe/{lang}")
 def transcribe(
+    lang: str,
     file: UploadFile = File(...),
     user=Depends(get_current_user),
-    lang : str = "vi"
 ):
+    print(lang)
     print(file.content_type)
     print(file)
     if file.content_type not in ["audio/mpeg", "audio/wav"]:

@@ -16,5 +16,8 @@
     "my_model_file" : "My modelfiles",
     "create_modelfile" : "Create a new modelfile",
     "modelfile_annotate" : "Config your modelfile for specific domain",
-    "export" : "Export"
+    "export" : "Export",
+    "what_sup" : "What's ",
+    "version" : "Version",
+    "okay" : "Okay, Let's Go!"
 }

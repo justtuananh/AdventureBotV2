@@ -141,12 +141,12 @@
 					</button>
 				{/if}
 			</div>
-			<div class="switch">
+			<label for="language-toggle" class="switch">
 				<input id="language-toggle" class="check-toggle check-toggle-round-flat" type="checkbox" on:change={toggleLocale}/>
 				<label for="language-toggle" />
 				<span class="on">VI</span>
 				<span class="off">EN</span>
-			</div>
+			</label>
 		</div>
 	</div>
 </nav>

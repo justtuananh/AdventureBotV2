@@ -6,7 +6,7 @@
 
 	import { WEBUI_VERSION } from '$lib/constants';
 	import { getChangelog } from '$lib/apis';
-
+	import {_} from 'svelte-i18n';
 	import Modal from './common/Modal.svelte';
 
 	export let show = false;
@@ -23,7 +23,7 @@
 	<div class="px-5 py-4 dark:text-gray-300">
 		<div class="flex justify-between items-start">
 			<div class="text-xl font-bold">
-				What’s New in {$WEBUI_NAME}
+				{$_("what_sup")} {$WEBUI_NAME}
 				<Confetti x={[-1, -0.25]} y={[0, 0.5]} />
 			</div>
 			<button
@@ -45,7 +45,7 @@
 			</button>
 		</div>
 		<div class="flex items-center mt-1">
-			<div class="text-sm dark:text-gray-200">Release Notes</div>
+			<div class="text-sm dark:text-gray-200">{$_("version")}</div>
 			<div class="flex self-center w-[1px] h-6 mx-2.5 bg-gray-200 dark:bg-gray-700" />
 			<div class="text-sm dark:text-gray-200">
 				v{WEBUI_VERSION}
@@ -58,46 +58,7 @@
 	<div class=" w-full p-4 px-5">
 		<div class=" overflow-y-scroll max-h-80">
 			<div class="mb-3">
-				{#if changelog}
-					{#each Object.keys(changelog) as version}
-						<div class=" mb-3 pr-2">
-							<div class="font-bold text-xl mb-1 dark:text-white">
-								v{version} - {changelog[version].date}
-							</div>
-
-							<hr class=" dark:border-gray-800 my-2" />
-
-							{#each Object.keys(changelog[version]).filter((section) => section !== 'date') as section}
-								<div class="">
-									<div
-										class="font-bold uppercase text-xs {section === 'added'
-											? 'text-white bg-blue-600'
-											: section === 'fixed'
-											? 'text-white bg-green-600'
-											: section === 'changed'
-											? 'text-white bg-yellow-600'
-											: section === 'removed'
-											? 'text-white bg-red-600'
-											: ''}  w-fit px-3 rounded-full my-2.5"
-									>
-										{section}
-									</div>
-
-									<div class="my-2.5 px-1.5">
-										{#each Object.keys(changelog[version][section]) as item}
-											<div class="text-sm mb-2">
-												<div class="font-semibold uppercase">
-													{changelog[version][section][item].title}
-												</div>
-												<div class="mb-2 mt-1">{changelog[version][section][item].content}</div>
-											</div>
-										{/each}
-									</div>
-								</div>
-							{/each}
-						</div>
-					{/each}
-				{/if}
+				Đây là phiên bản thử nghiệm đầu tiên của ZD Lab	
 			</div>
 		</div>
 		<div class="flex justify-end pt-3 text-sm font-medium">
@@ -108,7 +69,7 @@
 				}}
 				class=" px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-gray-100 transition rounded"
 			>
-				<span class="relative">Okay, Let's Go!</span>
+				<span class="relative">{$_("okay")}</span>
 			</button>
 		</div>
 	</div>
