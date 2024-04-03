@@ -40,6 +40,7 @@ app.add_middleware(
 def transcribe(
     file: UploadFile = File(...),
     user=Depends(get_current_user),
+    lang : str = "vi"
 ):
     print(file.content_type)
     print(file)
@@ -57,21 +58,9 @@ def transcribe(
             f.write(contents)
             f.close()
 
-        model = WhisperModel(
-            WHISPER_MODEL,
-            device="auto",
-            compute_type="int8",
-            download_root=WHISPER_MODEL_DIR,
-        )
-
-        _, info = model.transcribe(file_path, beam_size=1)
-        # print(
-        #     "Detected language '%s' with probability %f"
-        #     % (info.language, info.language_probability)
-        # )
-        print(info.language)
+        
         files = {'file': open(file_path, 'rb')}
-        if info.language == "en" :
+        if lang == "en" :
             response = requests.post(url, files=files, data = {'language': "English"})
         else :
             response = requests.post(url, files=files, data={'language' : "Vietnamese"})
